@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to check laptop battery health before buying used — LaptopSahi</title>
+<meta name="description" content="Use Windows' built-in powercfg battery report to see the true condition of a used laptop's battery before you pay. Step by step, no software needed.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="index.html">Laptop<span>Sahi</span></a>
+    <nav>
+      <a href="index.html">Guides</a>
+      <a href="about.html">About</a>
+      <a href="disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<article>
+  <div class="wrap">
+    <span class="kicker">GUIDE-005</span>
+    <h1>How to check laptop battery health before buying used</h1>
+    <p class="byline">Written from the repair bench · Updated 2026</p>
+
+    <div class="disclosure-note">This site may earn a small commission if you buy through links here, at no extra cost to you. See the full <a href="disclosure.html">affiliate disclosure</a>.</div>
+
+    <p>"Battery bilkul sahi hai, 5 ghante chalti hai." I hear this sentence every day, and about half the time the battery report says otherwise. The good news: Windows has a built-in tool that tells you the truth in about sixty seconds, no download needed, and any seller who won't let you run it has just answered your question.</p>
+
+    <h2>Run the report</h2>
+    <p>On the laptop you're inspecting:</p>
+    <ol>
+      <li>Press the Windows key, type <code>cmd</code>, right-click Command Prompt, choose "Run as administrator"</li>
+      <li>Type exactly: <code>powercfg /batteryreport</code> and press Enter</li>
+      <li>It prints a file path, usually something like <code>C:\Users\Name\battery-report.html</code></li>
+      <li>Open that file in any browser</li>
+    </ol>
+    <p>The whole thing takes less than a minute and touches nothing on the machine. It only reads what Windows has already been recording.</p>
+
+    <h2>The two numbers that matter</h2>
+    <p>Scroll to the section called "Installed batteries". You want these two rows:</p>
+
+    <div class="spec-strip"><span class="label">Battery report — the key rows</span>DESIGN CAPACITY ......... what the battery held when new
+FULL CHARGE CAPACITY .... what it can hold today
+
+HEALTH % = Full Charge ÷ Design × 100</div>
+
+    <img src="battery-report.jpg" alt="A Windows battery report showing Design Capacity of 60,000 mWh and Full Charge Capacity of 56,110 mWh, with a cycle count of 91." style="width:100%; height:auto; margin:24px 0; border:1px solid var(--rule);">
+
+    <p class="byline" style="margin-top:-12px; margin-bottom:28px;">A real report from a Lenovo on my bench. 56,110 ÷ 60,000 = 93.5% health, 91 cycles. This is what a well-kept battery looks like. Serial number and machine name blanked out.</p>
+
+    <p>Now compare that to a machine that came in last week: Design Capacity 45,000 mWh, Full Charge Capacity 27,900 mWh. That's 62% health. The seller had described it as "battery new jaisi". The laptop was otherwise good, so the customer bought it and budgeted for a replacement — which is the right way to use this number.</p>
+
+    <p>Same report, same two rows, completely different machines. You can tell them apart in ten seconds once you know where to look.</p>
+
+    <h2>How to read the percentage</h2>
+    <ul>
+      <li><strong>90%+</strong> — barely used. Rare on a used machine, and slightly suspicious if the power-on hours are high (the battery may have been swapped, which isn't bad, just worth asking about).</li>
+      <li><strong>75–90%</strong> — normal for a 3-year-old business laptop. You'll get decent backup. No action needed.</li>
+      <li><strong>60–75%</strong> — noticeably shorter backup. Fine if you mostly work plugged in. Use it to negotiate.</li>
+      <li><strong>Below 60%</strong> — the battery is near the end. Assume replacement cost and subtract it from what you offer.</li>
+    </ul>
+
+    <h2>Also check: cycle count and recent usage</h2>
+    <p>Further down, the report shows "Cycle Count" (how many times the battery has been fully charged and drained). Under 500 is comfortable; over 1,000 means heavy use. Some manufacturers don't report this — a blank field isn't a red flag by itself.</p>
+    <p>The "Battery usage" and "Battery capacity history" sections show the last few days and the last few months. If capacity dropped sharply in recent months, the battery is degrading fast right now, not slowly. That's worse than a low-but-stable number.</p>
+
+    <h2>What a replacement actually costs</h2>
+    <p>For most business laptops in the Delhi market, a decent compatible battery runs ₹2,000–3,500, and a genuine OEM one ₹4,000–6,000. Installation is 10–15 minutes on models with an external battery, longer on newer sealed ones.</p>
+    <p>So a battery at 55% health is roughly a ₹2,500–3,000 problem. If the laptop is otherwise excellent and priced ₹4,000 below the market, that's still a good deal. If it's priced the same as a healthy unit, you're overpaying — and now you can say exactly why.</p>
+
+    <h2>The one non-negotiable</h2>
+    <p>If a seller refuses to let you open Command Prompt on a laptop they're selling, walk away. It's a sixty-second read-only command. The refusal tells you what the report would have.</p>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 LaptopSahi · Delhi, India</p>
+    <p>
+      <a href="about.html">About</a>
+      <a href="disclosure.html">Affiliate Disclosure</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
