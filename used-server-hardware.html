@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Used server hardware: what it is, and why it's not a study machine — LaptopSahi</title>
+<meta name="description" content="Cheap used servers look like incredible value on paper. Here's what's actually inside one, why the specs mislead, and who should genuinely buy one.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="index.html">Laptop<span>Sahi</span></a>
+    <nav>
+      <a href="index.html">Guides</a>
+      <a href="about.html">About</a>
+      <a href="disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<article>
+  <div class="wrap">
+    <span class="kicker">GUIDE-008</span>
+    <h1>Used server hardware: what it is, and why it's not a study machine</h1>
+    <p class="byline">Written from the repair bench · Updated 2026</p>
+
+    <div class="disclosure-note">This site may earn a small commission if you buy through links here, at no extra cost to you. See the full <a href="disclosure.html">affiliate disclosure</a>.</div>
+
+    <p>Every few months a student asks me about a listing they've found: "Sir, 16 core Xeon, 32GB RAM, ₹12,000 only. Ye kaisa hai?" On paper it destroys any laptop on this site. In practice it's the wrong machine for almost everyone reading this — and understanding why teaches you more about computers than any spec sheet.</p>
+
+    <p>So let's open one up.</p>
+
+    <img src="server-board.jpg" alt="Inside a Lenovo System x tower server on the workbench: dual CPU sockets with one populated, eight DIMM slots, hot-swap drive backplane cables, and the power supply on the left." style="width:100%; height:auto; margin:24px 0; border:1px solid var(--rule);">
+
+    <p class="byline" style="margin-top:-12px; margin-bottom:32px;">A Lenovo System x tower on my bench. Board dated March 2015. One CPU socket filled, one empty. The green LED means it's on standby power.</p>
+
+    <h2>What you're looking at</h2>
+
+    <p>Start with the obvious difference: <strong>two processor sockets</strong>. The finned metal block in the middle is a heatsink covering one Xeon. To its right, that bare square grid of pins is a second, empty socket. A server can run two physical processors at once. No desktop or laptop does this.</p>
+
+    <p>Next, <strong>eight memory slots</strong> in two banks. A normal desktop has two or four. Servers are built to hold enormous amounts of RAM — and specifically <em>ECC RAM</em>, which detects and corrects memory errors as they happen. Regular desktop RAM won't work in most of these boards, and server RAM won't work in your desktop. They are not interchangeable, no matter what the seller says.</p>
+
+    <p>Up top, those grey cables run to a <strong>hot-swap drive backplane</strong> — a board with connectors where drives slide in from the front of the case without opening it or powering down. That's a design goal you only care about if the machine must never stop running.</p>
+
+    <p>And that fan at the bottom, plus the ones you can't see: servers move a lot of air, loudly, because they're designed for a rack in a cold room where nobody sits.</p>
+
+    <h2>Why the specs mislead</h2>
+
+    <div class="spec-strip"><span class="label">What "16 cores, 32GB" hides</span>SINGLE-CORE SPEED .... often SLOWER than a modern i3
+POWER DRAW ........... 150–400W idle-to-load, all day
+NOISE ................ 40–60 dB; a jet on a desk
+GRAPHICS ............. basic 2D chip; no gaming, no video
+RAM TYPE ............. ECC registered; not interchangeable
+WINDOWS .............. works, but drivers can fight you</div>
+
+    <p>Here is the core misunderstanding. A Xeon from 2015 has many cores, but each individual core is <strong>slower</strong> than a core in a current i3. Almost everything a student does — loading a mock test, opening a PDF, rendering a webpage — happens on <em>one</em> core at a time. Sixteen slow cores lose to four fast ones for that work. The extra cores sit idle.</p>
+
+    <p>Servers win at problems you can split into many independent pieces running at once: hosting websites, running virtual machines, database queries, batch processing. That's not exam prep.</p>
+
+    <p>Then there's electricity. A machine like this pulls a few hundred watts continuously. Run it eight hours a day and, at Delhi tariffs, you're adding meaningfully to the monthly bill — enough over a year to have bought a better laptop.</p>
+
+    <h2>Who should actually buy one</h2>
+
+    <p>I'm not saying never. These are extraordinary value for the right person:</p>
+    <ul>
+      <li><strong>Learning Linux, virtualization, or networking seriously.</strong> A cheap server lets you run ten virtual machines and break them without consequence. This is a real, common reason.</li>
+      <li><strong>Home lab / self-hosted storage.</strong> Those hot-swap bays and ECC memory exist precisely to keep data safe over years.</li>
+      <li><strong>Someone with a garage, a store room, or anywhere that isn't a bedroom.</strong> The noise is not a joke.</li>
+    </ul>
+
+    <p>Note that none of these are "I need a computer to study on." If that's you, an i3 laptop with an SSD will serve you better in every way that you will actually feel. See the <a href="best-laptops-under-30000.html">under ₹30,000 guide</a>.</p>
+
+    <h2>If you're buying one anyway, check these</h2>
+    <ol>
+      <li><strong>Are both CPUs present, or one?</strong> A second socket sitting empty is normal and fine — but the price should reflect one processor, not two. Sellers quote "dual Xeon capable" and mean the board, not the contents.</li>
+      <li><strong>Is the RAM ECC registered (RDIMM) or unbuffered?</strong> Boards are picky. Mismatched or partially populated banks cause boot failures that look like a dead machine.</li>
+      <li><strong>Does the RAID controller have a battery or flash module?</strong> A dead cache battery means the controller runs in a slower, safer mode. Cheap to replace, worth knowing.</li>
+      <li><strong>Power supplies:</strong> many have two for redundancy. Confirm both work; a single failed PSU is often why the machine got sold.</li>
+      <li><strong>Ask about the drive caddies.</strong> The trays that hold the drives are model-specific and are almost always missing. Buying them separately can cost more than the drives.</li>
+      <li><strong>Listen to it run</strong> before money changes hands. Then imagine that sound at 11 PM.</li>
+    </ol>
+
+    <h2>The real lesson</h2>
+
+    <p>Specs are answers to questions. "How many cores?" is only useful once you know whether your work uses more than one at a time. "How much RAM?" matters until you have enough, then stops mattering. Server hardware looks like a bargain because it's optimised for a question you're not asking.</p>
+
+    <p>The same logic runs through every guide on this site. A gaming laptop's graphics card, a workstation's Xeon, a 16GB RAM upgrade — all of them are real capability that some people genuinely need. The skill worth building isn't knowing which spec is biggest. It's knowing which specs you can safely ignore.</p>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 LaptopSahi · Delhi, India</p>
+    <p>
+      <a href="about.html">About</a>
+      <a href="disclosure.html">Affiliate Disclosure</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
