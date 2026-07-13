@@ -36,7 +36,18 @@ header .wrap { display: flex; align-items: baseline; justify-content: space-betw
   text-decoration: none;
   color: var(--ink);
   letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
+.logo-img {
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+  display: block;
+}
+.logo-text { display: inline; }
+.logo .accent { color: var(--bench); }
 .logo span { color: var(--bench); }
 nav a {
   font-family: 'JetBrains Mono', monospace;
