@@ -183,6 +183,36 @@ a:focus-visible, .article-card:focus-visible {
   outline-offset: 3px;
 }
 
+/* Services strip */
+.services {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.svc {
+  background: var(--mint);
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.svc-t {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--bench-dark);
+}
+.svc-d {
+  font-size: 0.8rem;
+  color: var(--meta);
+  line-height: 1.4;
+}
+@media (max-width: 640px) {
+  .services { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
